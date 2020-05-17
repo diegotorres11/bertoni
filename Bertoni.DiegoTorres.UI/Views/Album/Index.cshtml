@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Bertoni.DiegoTorres.Entity.Album>
+
+@{
+    ViewBag.Title = "Albums";
+}
+
+<style type="text/css">
+    .height {
+        max-height: 250px;
+        overflow-y: scroll;
+    }
+
+    .nodisplay {
+        display: none;
+    }
+</style>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Albums</h2>
+    </div>
+    <div class="panel-body ">
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Elija un álbum</label>
+            </div>
+            <div class="col-sm-7">
+                <select id="albums" class="form-control">
+                    @foreach (var album in Model)
+                    {
+                        <option value="@album.Id">@album.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <button onclick="showPosts();" class="btn btn-primary">Visualizar Álbum</button>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="table-responsive height">
+            <table id="photos" class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Url</th>
+                        <th>Miniatura</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel panel-heading">
+        <h2>Comments</h2>
+    </div>
+
+    <div class="panel panel-body">
+        <div class="table-responsive height">
+            <table id="comments" class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Comentario</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<table id="photosTemplate" class="nodisplay">
+    <tr>
+        <td>{{titulo}}</td>
+        <td>{{url}}</td>
+        <td>{{thumbnailUrl}}</td>
+        <td>
+            <button onclick="showComments({{photoId}});" class="btn btn-success">Ver comentarios</button>
+        </td>
+    </tr>
+</table>
+
+<table id="commentsTemplate" class="nodisplay">
+    <tr>
+        <td>{{nombre}}</td>
+        <td>{{correo}}</td>
+        <td>{{comentario}}</td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function () {
+
+    });
+
+    function showPosts() {
+        var selectedAlbumId = $('#albums').val();
+
+        $.ajax({
+            url: "/Album/GetPhotos",
+            data: { "albumId": selectedAlbumId },
+            method: "POST",
+            success: function (data) {
+
+                $('#photos > tbody').html('');
+
+                for (var photo of data) {
+                    var row = $('#photosTemplate > tbody').html();
+
+                    row = row.replace("{{titulo}}", photo.Title)
+                        .replace("{{url}}", photo.Url)
+                        .replace("{{thumbnailUrl}}", photo.ThumbnailUrl)
+                        .replace("{{photoId}}", photo.Id);
+
+                    $('#photos > tbody').append(row);
+                }
+
+                console.log(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function showComments(photoId) {
+
+        $.ajax({
+            url: "/Comment/Get",
+            data: { "photoId": photoId },
+            method: "POST",
+            success: function (data) {
+
+                $('#comments > tbody').html('');
+
+                for (var comment of data) {
+                    var row = $('#commentsTemplate > tbody').html();
+
+                    row = row.replace("{{nombre}}", comment.Name)
+                        .replace("{{correo}}", comment.Email)
+                        .replace("{{comentario}}", comment.Body);
+
+                    $('#comments > tbody').append(row);
+                }
+
+                console.log(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
