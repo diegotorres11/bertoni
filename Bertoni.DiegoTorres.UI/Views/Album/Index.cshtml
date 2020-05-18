@@ -4,72 +4,79 @@
     ViewBag.Title = "Albums";
 }
 
-<style type="text/css">
-    .height {
-        max-height: 250px;
-        overflow-y: scroll;
-    }
+<link href="~/Content/main.css" rel="stylesheet" />
 
-    .nodisplay {
-        display: none;
-    }
-</style>
-
-<div class="panel panel-primary">
+<div class="panel panel-success">
     <div class="panel-heading">
-        <h2>Albums</h2>
+        <h3>Albums</h3>
     </div>
     <div class="panel-body ">
-        <div class="row">
-            <div class="col-sm-2">
-                <label>Elija un álbum</label>
-            </div>
-            <div class="col-sm-7">
-                <select id="albums" class="form-control">
-                    @foreach (var album in Model)
-                    {
-                        <option value="@album.Id">@album.Title</option>
-                    }
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <button onclick="showPosts();" class="btn btn-primary">Visualizar Álbum</button>
-            </div>
-        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="albums" class="control-label col-sm-2 margin-20">Choose an album</label>
 
-        <br />
+                <div class="col-sm-7 margin-20">
+                    <select id="albums" class="form-control">
+                        @foreach (var album in Model)
+                        {
+                            <option value="@album.Id">@album.Title</option>
+                        }
+                    </select>
+                </div>
 
-        <div class="table-responsive height">
-            <table id="photos" class="table table-condensed table-striped">
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Url</th>
-                        <th>Miniatura</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+                <div class="col-sm-3">
+                    <button onclick="showPosts();" class="btn btn-primary">View Album</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="panel panel-primary">
     <div class="panel panel-heading">
-        <h2>Comments</h2>
+        <h3>Photos</h3>
+    </div>
+    <div class="panel panel-body">
+        <div class="height">
+            <table id="photos" class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="row hidden-xs">
+                                <div class="col-sm-6">
+                                    Title
+                                </div>
+                                <div class="col-sm-2">
+                                    Thumbnail
+                                </div>
+                                <div class="col-sm-2">
+
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-footer">
+        <div class="text-right">
+            <span id="photosRowCount">0</span> rows
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel panel-heading">
+        <div>
+            <span id="commentsRowCount">0</span> comments for <span id="selectedPhotoTitle"></span>
+        </div>
     </div>
 
     <div class="panel panel-body">
-        <div class="table-responsive height">
-            <table id="comments" class="table table-condensed table-striped">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Comentario</th>
-                    </tr>
-                </thead>
+        <div class="table-responsive">
+            <table id="comments">
                 <tbody></tbody>
             </table>
         </div>
@@ -78,83 +85,39 @@
 
 <table id="photosTemplate" class="nodisplay">
     <tr>
-        <td>{{titulo}}</td>
-        <td>{{url}}</td>
-        <td>{{thumbnailUrl}}</td>
         <td>
-            <button onclick="showComments({{photoId}});" class="btn btn-success">Ver comentarios</button>
+            <div class="row">
+                <div class="col-sm-6 margin-20">
+                    {{titulo}}
+                </div>
+                <div class="col-xs-6 col-sm-2 margin-20">
+                    <a href="{{url}}" target="_blank" title="Abrir imagen">
+                        <img src="{{thumbnailUrl}}" width="50" height="50" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-2 margin-20">
+                    <button onclick="showComments({{photoId}}); setCommentTitle('{{titulo}}');" class="btn btn-success">View comments</button>
+                </div>
+            </div>
         </td>
     </tr>
 </table>
 
 <table id="commentsTemplate" class="nodisplay">
     <tr>
-        <td>{{nombre}}</td>
-        <td>{{correo}}</td>
-        <td>{{comentario}}</td>
+        <td>
+            <div class="comment">
+                <b>Email:</b> <a href="mailto:{{correo}}">{{correo}}</a>
+                <div class="">
+                    <b>Title:</b> {{nombre}}
+                </div>
+                <span><b>Comment:</b></span>
+                <div class="">
+                    {{comentario}}
+                </div>
+            </div>
+        </td>
     </tr>
 </table>
 
-<script>
-    $(document).ready(function () {
-
-    });
-
-    function showPosts() {
-        var selectedAlbumId = $('#albums').val();
-
-        $.ajax({
-            url: "/Album/GetPhotos",
-            data: { "albumId": selectedAlbumId },
-            method: "POST",
-            success: function (data) {
-
-                $('#photos > tbody').html('');
-
-                for (var photo of data) {
-                    var row = $('#photosTemplate > tbody').html();
-
-                    row = row.replace("{{titulo}}", photo.Title)
-                        .replace("{{url}}", photo.Url)
-                        .replace("{{thumbnailUrl}}", photo.ThumbnailUrl)
-                        .replace("{{photoId}}", photo.Id);
-
-                    $('#photos > tbody').append(row);
-                }
-
-                console.log(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-
-    function showComments(photoId) {
-
-        $.ajax({
-            url: "/Comment/Get",
-            data: { "photoId": photoId },
-            method: "POST",
-            success: function (data) {
-
-                $('#comments > tbody').html('');
-
-                for (var comment of data) {
-                    var row = $('#commentsTemplate > tbody').html();
-
-                    row = row.replace("{{nombre}}", comment.Name)
-                        .replace("{{correo}}", comment.Email)
-                        .replace("{{comentario}}", comment.Body);
-
-                    $('#comments > tbody').append(row);
-                }
-
-                console.log(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-</script>
+<script src="~/Scripts/main.js"></script>

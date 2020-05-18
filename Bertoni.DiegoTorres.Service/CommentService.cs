@@ -1,23 +1,24 @@
 ﻿using Bertoni.DiegoTorres.Entity;
+using Bertoni.DiegoTorres.Service.Constants;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Bertoni.DiegoTorres.Service
 {
     public class CommentService
     {
-        private string _endpoint = "http://jsonplaceholder.typicode.com/comments";
         private HttpClient _httpClient = new HttpClient();
 
-        public IEnumerable<Comment> GetByPhotoId(int photoId)
+        public async Task<IEnumerable<Comment>> GetByPhotoId(int photoId)
         {
-            string url = string.Format("{0}?postId={1}", _endpoint, photoId);
+            string url = string.Format("{0}?postId={1}", EndpointsConstants.Comments, photoId);
             var comments = new List<Comment>();
-            var response = _httpClient.GetAsync(url).Result;
+            var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                comments = response.Content.ReadAsAsync<List<Comment>>().Result;
+                comments = await response.Content.ReadAsAsync<List<Comment>>();
             }
 
             return comments;

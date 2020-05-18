@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AlbumService.cs" />
     <Compile Include="CommentService.cs" />
+    <Compile Include="Constants\EndpointsConstants.cs" />
     <Compile Include="PhotoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

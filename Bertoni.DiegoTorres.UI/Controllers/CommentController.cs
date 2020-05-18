@@ -1,4 +1,5 @@
 ﻿using Bertoni.DiegoTorres.Service;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Bertoni.DiegoTorres.UI.Controllers
@@ -7,9 +8,9 @@ namespace Bertoni.DiegoTorres.UI.Controllers
     {
         private CommentService _commentService = new CommentService();
 
-        public JsonResult Get(int photoId)
+        public async Task<JsonResult> Get(int photoId)
         {
-            var comments = _commentService.GetByPhotoId(photoId);
+            var comments = await _commentService.GetByPhotoId(photoId);
 
             return new JsonResult() { Data = comments };
         }

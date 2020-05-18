@@ -1,36 +1,37 @@
 ﻿using Bertoni.DiegoTorres.Entity;
+using Bertoni.DiegoTorres.Service.Constants;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Bertoni.DiegoTorres.Service
 {
     public class PhotoService
     {
         HttpClient _client = new HttpClient();
-        string _endpoint = "http://jsonplaceholder.typicode.com/photos";
 
-        public IEnumerable<Photo> GetAll()
+        public async Task<IEnumerable<Photo>> GetAll()
         {
             var photos = new List<Photo>();
-            var response = _client.GetAsync(_endpoint).Result;
+            var response = await _client.GetAsync(EndpointsConstants.Photos);
 
             if (response.IsSuccessStatusCode)
             {
-                photos = response.Content.ReadAsAsync<List<Photo>>().Result;
+                photos = await response.Content.ReadAsAsync<List<Photo>>();
             }
 
             return photos;
         }
 
-        public IEnumerable<Photo> GetByAlbumId(int albumId)
+        public async Task<IEnumerable<Photo>> GetByAlbumId(int albumId)
         {
-            string url = string.Format("{0}?albumId={1}", _endpoint, albumId);
+            string url = string.Format("{0}?albumId={1}", EndpointsConstants.Photos, albumId);
             var photos = new List<Photo>();
-            var response = _client.GetAsync(url).Result;
+            var response = await _client.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                photos = response.Content.ReadAsAsync<List<Photo>>().Result;
+                photos = await response.Content.ReadAsAsync<List<Photo>>();
             }
 
             return photos;

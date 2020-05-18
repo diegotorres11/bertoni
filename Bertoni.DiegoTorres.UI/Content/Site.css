@@ -9,10 +9,25 @@
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#progress {
+    background-color: rgba(102, 166, 255, 0.3);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
 }
 
+.spinner {
+    background-image: url(../Images/spinner.gif);
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+    border-width: 0px;
+    font-weight: bold;
+    position: fixed;
+    padding: 10px 20px 10px 80px;
+    background-color: #FFFFFF;
+    font-size: 30px;
+    left: 40%;
+    top: 40%
+}

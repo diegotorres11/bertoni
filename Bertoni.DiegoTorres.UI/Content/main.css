@@ -1,0 +1,29 @@
+﻿body {
+    background-color: #66a6ff;
+    min-width: 300px;
+}
+
+.height {
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.nodisplay {
+    display: none;
+}
+
+#comments tbody td {
+    padding: 5px 5px !important;
+}
+
+.comment {
+    background-color: lightgray;
+    padding: 10px 10px;
+    border-radius: 10px;
+    max-width: 1000px;
+}
+
+.margin-20 {
+    margin-bottom: 20px;
+}
