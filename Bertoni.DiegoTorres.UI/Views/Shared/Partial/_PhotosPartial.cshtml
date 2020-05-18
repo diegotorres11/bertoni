@@ -1,0 +1,69 @@
+﻿@using Bertoni.DiegoTorres.Entity
+
+@model IEnumerable<Photo>
+
+<div class="panel panel-primary">
+    <div class="panel panel-heading">
+        <h3>Photos</h3>
+    </div>
+    <div class="panel panel-body">
+        <div class="height">
+            <input type="hidden" id="selectedPhotoTitleHidden" name="selectedPhotoTitleHidden" value="" />
+
+            <table id="photos" class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="row hidden-xs">
+                                <div class="col-sm-6">
+                                    Title
+                                </div>
+                                <div class="col-sm-2">
+                                    Thumbnail
+                                </div>
+                                <div class="col-sm-2">
+
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var photo in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div class="col-sm-6 margin-20">
+                                        @photo.Title
+                                    </div>
+                                    <div class="col-xs-6 col-sm-2 margin-20">
+                                        <a href="@photo.Url" target="_blank" title="Open image">
+                                            <img src="@photo.ThumbnailUrl" width="50" height="50" />
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-2 margin-20">
+                                        @Ajax.ActionLink("View comments", "Get", "Comment", new { photoId = @photo.Id }, new AjaxOptions
+                                   {
+                                       HttpMethod = "POST",
+                                       UpdateTargetId = "commentsContainer",
+                                       InsertionMode = InsertionMode.Replace,
+                                       LoadingElementId = "progress",
+                                       LoadingElementDuration = 1000,
+                                       OnSuccess = "onPhotoSuccess"
+                                   }, new { @class = "btn btn-success", onclick = "return setCommentTitle('" + photo.Title + "');" })
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-footer">
+        <div class="text-right">
+            <span id="photosRowCount">@Model.Count()</span> rows
+        </div>
+    </div>
+</div>

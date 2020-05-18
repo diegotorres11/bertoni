@@ -8,11 +8,11 @@ namespace Bertoni.DiegoTorres.UI.Controllers
     {
         private PhotoService _photoService = new PhotoService();
 
-        public async Task<JsonResult> Get(int albumId)
+        public async Task<PartialViewResult> Get(int albumId)
         {
             var photos = await _photoService.GetByAlbumId(albumId);
 
-            return new JsonResult() { Data = photos };
+            return PartialView("Partial/_PhotosPartial", photos);
         }
     }
 }
