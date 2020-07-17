@@ -1,5 +1,4 @@
 ﻿using Bertoni.DiegoTorres.Service.Abstract;
-using Bertoni.DiegoTorres.Service.Concrete.RestApi;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -7,7 +6,12 @@ namespace Bertoni.DiegoTorres.UI.Controllers
 {
     public class CommentController : Controller
     {
-        private ICommentService _commentService = new CommentService();
+        private ICommentService _commentService;
+
+        public CommentController(ICommentService commentService)
+        {
+            _commentService = commentService;
+        }
 
         public async Task<PartialViewResult> Get(int photoId = 1)
         {

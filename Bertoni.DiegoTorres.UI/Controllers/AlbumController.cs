@@ -1,5 +1,4 @@
 ﻿using Bertoni.DiegoTorres.Service.Abstract;
-using Bertoni.DiegoTorres.Service.Concrete.RestApi;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -7,7 +6,12 @@ namespace Bertoni.DiegoTorres.UI.Controllers
 {
     public class AlbumController : Controller
     {
-        private IAlbumService _albumService = new AlbumService();
+        private IAlbumService _albumService;
+
+        public AlbumController(IAlbumService albumService)
+        {
+            _albumService = albumService;
+        }
 
         public async Task<ActionResult> Index()
         {

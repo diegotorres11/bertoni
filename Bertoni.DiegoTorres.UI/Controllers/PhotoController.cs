@@ -1,5 +1,4 @@
 ﻿using Bertoni.DiegoTorres.Service.Abstract;
-using Bertoni.DiegoTorres.Service.Concrete.RestApi;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -7,7 +6,12 @@ namespace Bertoni.DiegoTorres.UI.Controllers
 {
     public class PhotoController : Controller
     {
-        private IPhotoService _photoService = new PhotoService();
+        private IPhotoService _photoService;
+
+        public PhotoController(IPhotoService photoService)
+        {
+            _photoService = photoService;
+        }
 
         public async Task<PartialViewResult> Get(int albumId)
         {
