@@ -6,20 +6,14 @@ using System.Threading.Tasks;
 
 namespace Bertoni.DiegoTorres.Service
 {
-    public class CommentService
+    public class CommentService : ICommentService
     {
-        private HttpClient _httpClient = new HttpClient();
+        private WebServiceConsumer _consumer = new WebServiceConsumer();
 
         public async Task<IEnumerable<Comment>> GetByPhotoId(int photoId)
         {
             string url = string.Format("{0}?postId={1}", EndpointsConstants.Comments, photoId);
-            var comments = new List<Comment>();
-            var response = await _httpClient.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
-            {
-                comments = await response.Content.ReadAsAsync<List<Comment>>();
-            }
+            var comments = await _consumer.ConsumeCollection<Comment>(url);
 
             return comments;
         }

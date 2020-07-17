@@ -6,7 +6,7 @@ namespace Bertoni.DiegoTorres.UI.Controllers
 {
     public class AlbumController : Controller
     {
-        private AlbumService _albumService = new AlbumService();
+        private IAlbumService _albumService = new AlbumService();
 
         public async Task<ActionResult> Index()
         {

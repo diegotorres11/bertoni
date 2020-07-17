@@ -6,7 +6,7 @@ namespace Bertoni.DiegoTorres.UI.Controllers
 {
     public class CommentController : Controller
     {
-        private CommentService _commentService = new CommentService();
+        private ICommentService _commentService = new CommentService();
 
         public async Task<PartialViewResult> Get(int photoId = 1)
         {

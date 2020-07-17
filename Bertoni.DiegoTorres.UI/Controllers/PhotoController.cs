@@ -6,7 +6,7 @@ namespace Bertoni.DiegoTorres.UI.Controllers
 {
     public class PhotoController : Controller
     {
-        private PhotoService _photoService = new PhotoService();
+        private IPhotoService _photoService = new PhotoService();
 
         public async Task<PartialViewResult> Get(int albumId)
         {
