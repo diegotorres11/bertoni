@@ -17,16 +17,7 @@
                     {
                         <tr>
                             <td>
-                                <div class="comment">
-                                    <b>Email:</b> <a href="mailto:@comment.Email">@comment.Email</a>
-                                    <div class="">
-                                        <b>Title:</b> @comment.Name
-                                    </div>
-                                    <span><b>Comment:</b></span>
-                                    <div class="">
-                                        @comment.Body
-                                    </div>
-                                </div>
+                                @Html.Partial("Partial/CommentSummary", comment)
                             </td>
                         </tr>
                     }

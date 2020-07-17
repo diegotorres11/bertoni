@@ -141,6 +141,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Partial\_PhotosPartial.cshtml" />
     <Content Include="Views\Shared\Partial\_CommentsPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\CommentSummary.cshtml" />
+    <Content Include="Views\Shared\Partial\PhotoSummary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
