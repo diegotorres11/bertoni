@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.UI", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.Service", "Bertoni.DiegoTorres.Service\Bertoni.DiegoTorres.Service.csproj", "{9F292AAA-8DB3-4FFF-960B-76ACDDFD6C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.Entity", "Bertoni.DiegoTorres.Entity\Bertoni.DiegoTorres.Entity.csproj", "{865913A2-7B8E-42D8-987F-0776E424A699}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.Domain", "Bertoni.DiegoTorres.Domain\Bertoni.DiegoTorres.Domain.csproj", "{865913A2-7B8E-42D8-987F-0776E424A699}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

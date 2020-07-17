@@ -1,4 +1,4 @@
-﻿namespace Bertoni.DiegoTorres.Entity
+﻿namespace Bertoni.DiegoTorres.Domain.Entity
 {
     public class Photo
     {

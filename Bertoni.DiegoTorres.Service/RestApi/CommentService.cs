@@ -1,7 +1,6 @@
-﻿using Bertoni.DiegoTorres.Entity;
+﻿using Bertoni.DiegoTorres.Domain.Entity;
 using Bertoni.DiegoTorres.Service.Constants;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Bertoni.DiegoTorres.Service

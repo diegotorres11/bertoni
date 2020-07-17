@@ -151,9 +151,9 @@
     <Folder Include="Views\Photo\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bertoni.DiegoTorres.Entity\Bertoni.DiegoTorres.Entity.csproj">
+    <ProjectReference Include="..\Bertoni.DiegoTorres.Domain\Bertoni.DiegoTorres.Domain.csproj">
       <Project>{865913a2-7b8e-42d8-987f-0776e424a699}</Project>
-      <Name>Bertoni.DiegoTorres.Entity</Name>
+      <Name>Bertoni.DiegoTorres.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bertoni.DiegoTorres.Service\Bertoni.DiegoTorres.Service.csproj">
       <Project>{9f292aaa-8db3-4fff-960b-76acddfd6c46}</Project>
