@@ -47,15 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommentService.cs" />
-    <Compile Include="IPhotoService.cs" />
-    <Compile Include="RestApi\AlbumService.cs" />
-    <Compile Include="RestApi\CommentService.cs" />
+    <Compile Include="Abstract\ICommentService.cs" />
+    <Compile Include="Abstract\IPhotoService.cs" />
+    <Compile Include="Concrete\RestApi\AlbumService.cs" />
+    <Compile Include="Concrete\RestApi\CommentService.cs" />
     <Compile Include="Constants\EndpointsConstants.cs" />
-    <Compile Include="IAlbumService.cs" />
-    <Compile Include="RestApi\PhotoService.cs" />
+    <Compile Include="Abstract\IAlbumService.cs" />
+    <Compile Include="Concrete\RestApi\PhotoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebServiceConsumer.cs" />
+    <Compile Include="Util\WebServiceConsumer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Bertoni.DiegoTorres.Service
+namespace Bertoni.DiegoTorres.Service.Abstract
 {
     public interface IPhotoService
     {
