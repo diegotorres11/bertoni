@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.UI", "Bertoni.DiegoTorres.UI\Bertoni.DiegoTorres.UI.csproj", "{F8766A6D-5F09-454C-B0BC-3A53AB9C3DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.PhotoAlbum.UI", "Bertoni.PhotoAlbum.UI\Bertoni.PhotoAlbum.UI.csproj", "{F8766A6D-5F09-454C-B0BC-3A53AB9C3DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.Service", "Bertoni.DiegoTorres.Service\Bertoni.DiegoTorres.Service.csproj", "{9F292AAA-8DB3-4FFF-960B-76ACDDFD6C46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.PhotoAlbum.Service", "Bertoni.PhotoAlbum.Service\Bertoni.PhotoAlbum.Service.csproj", "{9F292AAA-8DB3-4FFF-960B-76ACDDFD6C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.DiegoTorres.Domain", "Bertoni.DiegoTorres.Domain\Bertoni.DiegoTorres.Domain.csproj", "{865913A2-7B8E-42D8-987F-0776E424A699}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.PhotoAlbum.Domain", "Bertoni.PhotoAlbum.Domain\Bertoni.PhotoAlbum.Domain.csproj", "{865913A2-7B8E-42D8-987F-0776E424A699}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9ACDE26E-D65F-449C-80FA-ADF3F33E6F52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{A9DC30C5-8B4A-4E59-BB3B-77345AF407D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{54FA3942-EC51-43D0-B78A-2B360CDE9D30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8766A6D-5F09-454C-B0BC-3A53AB9C3DFA} = {9ACDE26E-D65F-449C-80FA-ADF3F33E6F52}
+		{9F292AAA-8DB3-4FFF-960B-76ACDDFD6C46} = {A9DC30C5-8B4A-4E59-BB3B-77345AF407D8}
+		{865913A2-7B8E-42D8-987F-0776E424A699} = {54FA3942-EC51-43D0-B78A-2B360CDE9D30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EB3A31A-89D4-4B51-AFC2-45E7D667F094}

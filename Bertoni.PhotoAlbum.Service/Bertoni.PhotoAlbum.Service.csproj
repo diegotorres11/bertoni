@@ -61,9 +61,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bertoni.DiegoTorres.Domain\Bertoni.DiegoTorres.Domain.csproj">
+    <ProjectReference Include="..\Bertoni.PhotoAlbum.Domain\Bertoni.PhotoAlbum.Domain.csproj">
       <Project>{865913a2-7b8e-42d8-987f-0776e424a699}</Project>
-      <Name>Bertoni.DiegoTorres.Domain</Name>
+      <Name>Bertoni.PhotoAlbum.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
