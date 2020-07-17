@@ -8,7 +8,7 @@ namespace Bertoni.DiegoTorres.Service.Util
     public class WebServiceConsumer
     {
         private static HttpClient _client;
-        private static volatile object _locker;
+        private static volatile object _locker = new object();
 
         private static HttpClient Client
         {
