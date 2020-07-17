@@ -7,12 +7,32 @@ namespace Bertoni.DiegoTorres.Service.Util
 {
     public class WebServiceConsumer
     {
-        HttpClient _client = new HttpClient();
+        private static HttpClient _client;
+        private static volatile object _locker;
+
+        private static HttpClient Client
+        {
+            get
+            {
+                if (_client == null)
+                {
+                    lock (_locker)
+                    {
+                        if (_client == null)
+                        {
+                            _client = new HttpClient();
+                        }
+                    }
+                }
+
+                return _client;
+            }
+        }
 
         public async Task<IEnumerable<T>> ConsumeCollection<T>(string url)
         {
             var collection = Enumerable.Empty<T>();
-            var response = await _client.GetAsync(url);
+            var response = await Client.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
