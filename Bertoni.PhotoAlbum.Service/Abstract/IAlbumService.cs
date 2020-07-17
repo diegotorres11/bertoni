@@ -1,8 +1,8 @@
-﻿using Bertoni.DiegoTorres.Domain.Entity;
+﻿using Bertoni.PhotoAlbum.Domain.Entity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Bertoni.DiegoTorres.Service.Abstract
+namespace Bertoni.PhotoAlbum.Service.Abstract
 {
     public interface IAlbumService
     {

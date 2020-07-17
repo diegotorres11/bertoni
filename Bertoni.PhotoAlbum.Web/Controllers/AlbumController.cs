@@ -1,8 +1,8 @@
-﻿using Bertoni.DiegoTorres.Service.Abstract;
+﻿using Bertoni.PhotoAlbum.Service.Abstract;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Bertoni.DiegoTorres.UI.Controllers
+namespace Bertoni.PhotoAlbum.UI.Controllers
 {
     public class AlbumController : Controller
     {

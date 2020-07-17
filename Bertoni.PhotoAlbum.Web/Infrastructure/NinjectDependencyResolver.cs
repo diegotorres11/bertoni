@@ -1,11 +1,11 @@
-﻿using Bertoni.DiegoTorres.Service.Abstract;
-using Bertoni.DiegoTorres.Service.Concrete.RestApi;
+﻿using Bertoni.PhotoAlbum.Service.Abstract;
+using Bertoni.PhotoAlbum.Service.Concrete.RestApi;
 using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace Bertoni.DiegoTorres.UI.Infrastructure
+namespace Bertoni.PhotoAlbum.UI.Infrastructure
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {

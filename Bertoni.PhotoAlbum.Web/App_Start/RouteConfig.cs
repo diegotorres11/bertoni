@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Bertoni.DiegoTorres.UI
+namespace Bertoni.PhotoAlbum.UI
 {
     public class RouteConfig
     {

@@ -1,4 +1,4 @@
-﻿namespace Bertoni.DiegoTorres.Domain.Entity
+﻿namespace Bertoni.PhotoAlbum.Domain.Entity
 {
     public class Album
     {

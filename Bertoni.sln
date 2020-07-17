@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.PhotoAlbum.UI", "Bertoni.PhotoAlbum.UI\Bertoni.PhotoAlbum.UI.csproj", "{F8766A6D-5F09-454C-B0BC-3A53AB9C3DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.PhotoAlbum.Web", "Bertoni.PhotoAlbum.Web\Bertoni.PhotoAlbum.Web.csproj", "{F8766A6D-5F09-454C-B0BC-3A53AB9C3DFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bertoni.PhotoAlbum.Service", "Bertoni.PhotoAlbum.Service\Bertoni.PhotoAlbum.Service.csproj", "{9F292AAA-8DB3-4FFF-960B-76ACDDFD6C46}"
 EndProject

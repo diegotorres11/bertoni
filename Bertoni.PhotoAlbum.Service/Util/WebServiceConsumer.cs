@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Bertoni.DiegoTorres.Service.Util
+namespace Bertoni.PhotoAlbum.Service.Util
 {
     public class WebServiceConsumer
     {

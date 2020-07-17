@@ -1,11 +1,11 @@
-﻿using Bertoni.DiegoTorres.Domain.Entity;
-using Bertoni.DiegoTorres.Service.Abstract;
-using Bertoni.DiegoTorres.Service.Constants;
-using Bertoni.DiegoTorres.Service.Util;
+﻿using Bertoni.PhotoAlbum.Domain.Entity;
+using Bertoni.PhotoAlbum.Service.Abstract;
+using Bertoni.PhotoAlbum.Service.Constants;
+using Bertoni.PhotoAlbum.Service.Util;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Bertoni.DiegoTorres.Service.Concrete.RestApi
+namespace Bertoni.PhotoAlbum.Service.Concrete.RestApi
 {
     public class PhotoService : IPhotoService
     {

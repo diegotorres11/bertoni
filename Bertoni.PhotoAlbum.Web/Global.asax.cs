@@ -1,4 +1,4 @@
-﻿using Bertoni.DiegoTorres.UI.Infrastructure;
+﻿using Bertoni.PhotoAlbum.UI.Infrastructure;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Bertoni.DiegoTorres.UI
+namespace Bertoni.PhotoAlbum.UI
 {
     public class MvcApplication : System.Web.HttpApplication
     {

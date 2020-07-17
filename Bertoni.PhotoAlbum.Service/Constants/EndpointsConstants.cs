@@ -1,4 +1,4 @@
-﻿namespace Bertoni.DiegoTorres.Service.Constants
+﻿namespace Bertoni.PhotoAlbum.Service.Constants
 {
     public static class EndpointsConstants
     {
