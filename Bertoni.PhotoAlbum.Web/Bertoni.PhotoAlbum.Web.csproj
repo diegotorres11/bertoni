@@ -115,8 +115,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\Views\album.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Views\Partial\photo-summary.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
